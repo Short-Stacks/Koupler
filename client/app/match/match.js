@@ -1,7 +1,8 @@
-angular.module('koupler.couples',[])
+angular.module('koupler.match',[])
 
 //ctrl name changed from useCtrl to couplesCtrl
-.controller('CouplesCtrl', function($scope, $http, AuthTokenFactory) {
+.controller('MatchCtrl', function($scope, $http, AuthTokenFactory) {
+  
   var token = AuthTokenFactory.getToken();
 
   $http({

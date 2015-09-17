@@ -12,11 +12,10 @@ var queryDb = function(queryString, params, callback) {
 
 module.exports = {
 
-  getProfileInfo: function(callback) {
-    // var queryString = 'SELECT ' ALL THE INFORMATION FOR THIS USER
-    //queryDb(queryString, params, callback);
-    console.log('in profileModel!');
-    callback('HELLOOOOO')
+  getProfileInfo: function(params, callback) {
+    console.log("inget getProfileInfo!");
+    var queryString = 'SELECT * FROM couples WHERE couples.username = ?'
+    queryDb(queryString, params, callback);
   }
 
 };

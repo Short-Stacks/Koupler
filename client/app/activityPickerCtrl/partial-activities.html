@@ -1,0 +1,9 @@
+<h1 id="title"> What Do You Want To Do Today? </h1>
+
+<div class="activities">
+    <div class="activity" 
+        ng-repeat="activity in ctrl.activities" 
+        ng-click="ctrl.postActivity(activity);">
+        {{ activity.name }}
+    </div>
+</div>

@@ -1,8 +1,8 @@
-<nav class="navbar navbar-custom navbar-fixed-top" ng-controller="AuthCtrl">
+ <nav class="navbar navbar-custom navbar-fixed-top" ng-controller="AuthCtrl">
   <div class="container">
       <button ng-if="!loggedIn() && atHomeView()" ng-click="signin()" class="btn btn-primary navbar-btn navbar-right">Sign In</button>
       <button ng-if="loggedIn()" ng-click="signout()" class="btn btn-primary navbar-btn navbar-right">Sign Out</button>
       <button ng-if="!atProfileView() && loggedIn()" ng-click="goToProfile()" class="btn btn-default navbar-btn navbar-right">Profile</button>
       <button ng-if="!atActivitiesView() && loggedIn()" ng-click="goToActivities()" class="btn btn-default navbar-btn navbar-right">Match Up</button>
-  </div> <!-- /container for nav-->
+  </div>
 </nav>

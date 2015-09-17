@@ -1,0 +1,19 @@
+<nav-bar></nav-bar>
+
+<div id="match" ng-controller="MatchCtrl">
+
+<h3 class="stroke">Matches</h3> 
+
+<div class="match-container col-md-6" ng-repeat="match in ctrl.matches">
+  <a ng-href="#/profile/{{ match.username }}">
+    <img ng-src="{{ match.profilePic }}" height="150px" width="150px">
+  </a>
+  <span class="strokeSmall"> {{ match.firstName1 }} & {{ match.firstName2 }} </span>
+  <div ng-repeat="activity in match.activities">
+    <span class="activity col-md-1"> {{ activity }} </span>
+  </div>
+  <p class="row"><h4>About Us</h4> {{ match.profileInfo['About Us'] }} </p>
+  <button class="signoutButton">Start Chatting</button>
+</div>
+
+</div>

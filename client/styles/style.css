@@ -76,8 +76,23 @@ html, .container-fluid {
   -webkit-text-stroke-color: white;
 }
 
-#koupler {
+.strokeSmall {
+  font-weight: 900;
+  margin-bottom: 30px;
+  font-size: 30px;
+  margin-left: 100px;
+  /*color: #772828;*/
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
 
+.match-container {
+  background-color: #888888;
+  margin-bottom: 15px;
+  padding: 10px 10px 15px 10px;
+  border: 1px solid #BBBBBB;
+  border-radius: 5px;
 }
 
 .loginfield {
@@ -102,6 +117,21 @@ html, .container-fluid {
   border-color: #96B2D4;
   font-size: 16px;
   color: white;
+}
+
+.tabContainer {
+  background-image: url("http://previews.123rf.com/images/inxti/inxti1202/inxti120200037/12232435-two-heart-on-wood-background-with-copy-space--Stock-Photo-day-mothers-wood.jpg");
+}
+
+.tabs {
+  font-weight: 800;
+  margin-bottom: -1px;
+  font-size: 20px;
+  margin-left: 30px;
+  /*color: #772828;*/
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: white;
 }
 
 h3, p {
@@ -193,6 +223,7 @@ h3, p {
 
 .activity {
   font-weight: 300;
+  display: inline-block;
   width: 100px;
   height: 3em;
   border-width: 1px;

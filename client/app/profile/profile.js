@@ -28,19 +28,18 @@ angular.module('koupler.profile', [])
   vm.getProfileInfo = function () {
     var token = AuthTokenFactory.getToken();
     //GET request should respond with user's profile picture, interests, about, memories, etc.
-    $http.get('/profile', {token: token})
+    $http.get('/profile', {params: 
+      {token: token}
+    })
       .then(function(response) {
         if(response.data.isAuthorized) {
           vm.isAuthorized = true;
         }
-        vm.profileData = response.data;
+        vm.profileData = response.data; //looks like [{about us: "", username: ""}] 
+        console.log(vm.profileData);
       })
-      // .then(function() {
-      //   $http.get('profile/memories', function (err, data) {
-
-      //   })
-      // })
   };
 
   vm.getProfileInfo();
+
 });

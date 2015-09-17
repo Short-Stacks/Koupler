@@ -52,3 +52,12 @@ angular.module("koupler").directive("navBar", ['$window', '$location', '$routePa
     }
   };
 }]);
+
+//attempt at tabs
+
+// angular.module('koupler.tabbar').controller('TabBarCtrl', function ($scope, $window) {
+//   $scope.tabs = [
+//     { title:'Profile Home', content:'Dynamic content 1' },
+//     { title:'Activities', content:'Dynamic content 2' },
+//     { title:'Matches', content:'Dynamic content 1', disabled: true },
+//   ];

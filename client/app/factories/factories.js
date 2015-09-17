@@ -33,11 +33,13 @@ angular.module('koupler.factories', [])
       $window.localStorage.setItem(key, token)
     } else {
       $window.localStorage.removeItem(key);
+      console.log($window.localStorage.getItem(key));
     }
   };
 
   var isAuth = function() {
-    return !! $window.localStorage.getItem(key);
+    console.log('in isAuth')
+    return !!$window.localStorage.getItem(key);
   };
 
   return {
