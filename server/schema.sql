@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS events;
 DROP TABLE IF EXISTS photos;
 DROP TABLE IF EXISTS total_messages;
 DROP TABLE IF EXISTS messages;
+DROP TABLE IF EXISTS zip_codes;
 
 
 /********* TABLE COUPLES *********/
@@ -30,6 +31,8 @@ CREATE TABLE couples (
   likes INT(10),
   about_us VARCHAR(4096),
   photo_filepath VARCHAR(256),
+  location_city VARCHAR(128),
+  location_zip INT(10),
 
   PRIMARY KEY(id)
 );
@@ -161,12 +164,11 @@ CREATE TABLE messages (
 /************ TEST DATA ************/
 /***********************************/
 
-
 -- password for both users is 1234
 INSERT INTO couples (username, hash, person_1_last_name, person_1_first_name, person_2_last_name, person_2_first_name, email, phone, likes, about_us, photo_filepath)
 VALUES ("pitts", "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC", "Pitt", "Brad", "Jolie", "Angelina", "brangelina@hollywood.com", 1234567890, 0, "We have six children. Max, Pax, Zahara, Shiloh, Knox, and Vivienne", "add/path/to/pic.jpg"),
-       ("beckhams", "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC", "Beckham", "Victoria", "Beckham", "David", "soccer@euroleague.com", 1234567890, 0, "We have four children. Brooklyn, Romeo, Cruz, and Harper", "add/path/to/pic.jpg");
-
+       ("beckhams", "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC", "Beckham", "Victoria", "Beckham", "David", "soccer@euroleague.com", 1234567890, 0, "We have four children. Brooklyn, Romeo, Cruz, and Harper", "add/path/to/pic.jpg"),
+       ("bowzers", "bowzers", "duffy", "scruffy", "duffy", "muffy", "justbeindogs@dogs.com", 5748574857, 2, "Just a couple of dogs, bein' dogs.", "add/path/to/pic.jpg", "Los Angeles", 90210);
 
 INSERT INTO activities (activity_name, activity_type)
 VALUES  ("Hiking", "Outdoors"),
@@ -190,4 +192,10 @@ INSERT INTO couples_activities (couples_id, activities_id)
 SELECT couples.id, activities.id
 FROM couples, activities
 WHERE couples.username='beckhams'
+AND activities.activity_name='Dinner';
+
+INSERT INTO couples_activities (couples_id, activities_id)
+SELECT couples.id, activities.id
+FROM couples, activities
+WHERE couples.username='bowzers'
 AND activities.activity_name='Dinner';
