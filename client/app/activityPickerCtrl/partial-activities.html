@@ -3,7 +3,7 @@
 <div class="activities">
     <div class="activity" 
         ng-repeat="activity in ctrl.activities" 
-        ng-click="ctrl.postActivity(activity);">
+        ng-click="ctrl.activityChosen = activity;">
         {{ activity.name }}
     </div>
 </div>

@@ -23,7 +23,6 @@ module.exports = {
   }
 
   , getMatches: function(params, callback) {
-    var activityId = 0;
     var matchesId;
     var activityIdQueryString = 'SELECT id FROM activities WHERE activity_name = (?)';
     //define activity Id to simplify query process and make queries more readable
@@ -33,5 +32,10 @@ module.exports = {
       var queryString = 'SELECT * FROM couples c, couples_activities j WHERE j.couples_id = c.id AND j.activities_id = (?)';
       queryDb(queryString, [ activityId ], callback);
     });
+  }
+
+  , getZipCoords: function(params, callback) {
+    var queryString = 'SELECT * FROM zip_codes z WHERE z.zip = (?)';
+    queryDb(queryString, params, callback);
   }
 };

@@ -4,16 +4,17 @@
 
 <h3 class="stroke">Matches</h3>
 
-<div class="match-container col-md-6" ng-repeat="match in ctrl.matches">
+<div class="match-container" ng-repeat="match in ctrl.matches">
   <a ng-href="#/profile/{{ match.username }}">
-    <img ng-src="{{ match.profilePic }}" height="150px" width="150px">
+    <!-- <img ng-src="{{ match.profilePic }}" height="150px" width="150px"> -->
   </a>
-  <span class="strokeSmall"> {{ match.firstName1 }} & {{ match.firstName2 }} </span>
-  <div ng-repeat="activity in match.activities">
-    <span class="activity col-md-1"> {{ activity }} </span>
-  </div>
-  <p class="row"><h4>About Us</h4> {{ match.profileInfo['About Us'] }} </p>
-  <button class="signoutButton">Start Chatting</button>
+  <span class="strokeSmall"> {{ match.person_1_first_name }} & {{ match.person_2_first_name }} </span>
+  <!-- <div ng-repeat="activity in match.activities"> -->
+    <span class="activity col-md-1"> {{ ctrl.activityChosen.name }} </span>
+  <!-- </div> -->
+  <p class="row"><h4>City</h4> {{ match.location_city }} </p>
+  <p class="row"><h4>About Us</h4> {{ match.about_us }} </p>
+  <button class="signupbutton" ng-click="console.log(match.username)">Start Chatting</button>
 </div>
 
 </div>

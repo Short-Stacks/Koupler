@@ -4,4 +4,14 @@
   <div ui-view="activities"/>
 </div>
 
-<div ng-show="ctrl.matched" ui-view="match"/>
+<div class="col-md-2 col-md-offset-5" ng-show="ctrl.activityChosen">
+  <p> {{ ctrl.activityChosen.name }} around: </p>
+  <form ng-submit="ctrl.postActivity(ctrl.activityChosen, ctrl.userZipCode, ctrl.withinDistance)">
+    <input ng-model="ctrl.userZipCode" placeholder="Enter Your Zip Code To Find Matches"/>
+    <p> within a distance of: </p>
+    <input ng-model="ctrl.searchDistance" placeholder="Within a distance of ..."/><p> miles. </p>
+    <input type="submit" id="submit" value="Find Matches" />
+  </form>
+</div>
+
+<div class="col-md-6" ng-show="ctrl.matched" ui-view="match"/>
