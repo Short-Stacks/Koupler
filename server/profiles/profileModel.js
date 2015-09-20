@@ -32,6 +32,7 @@ module.exports = {
     dbConnection.query(queryString, params, callback);
   },
 
+<<<<<<< HEAD
   addActivity: function(username, activity, callback) {
     
     dbConnection.query('SELECT id FROM couples c WHERE c.username =?', [ username ], function(err, data) {
@@ -48,6 +49,8 @@ module.exports = {
   },
 
 
+=======
+>>>>>>> (feature) can fully edit and update profile, can view activities in profile, working on adding activities during edit of profile
   getProfilePic: function(params, callback) {
     var queryString = 'SELECT photo_filepath FROM couples WHERE username = ?;';
 
