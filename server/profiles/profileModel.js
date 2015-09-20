@@ -33,8 +33,14 @@ module.exports = {
   },
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   addActivity: function(username, activity, callback) {
     
+=======
+=======
+  addActivity: function(username, activity, callback) {
+    var couples_activities = couples_activities || [];
+>>>>>>> (feature) can fully edit and update profile, can view activities in profile, working on adding activities during edit of profile
     dbConnection.query('SELECT id FROM couples c WHERE c.username =?', [ username ], function(err, data) {
       var couplesId = data[0].id;
       dbConnection.query('SELECT id FROM activities a WHERE a.activity_name=?', [ activity ], function(err, data) {
@@ -49,7 +55,10 @@ module.exports = {
   },
 
 
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> (feature) can fully edit and update profile, can view activities in profile, working on adding activities during edit of profile
 >>>>>>> (feature) can fully edit and update profile, can view activities in profile, working on adding activities during edit of profile
   getProfilePic: function(params, callback) {
     var queryString = 'SELECT photo_filepath FROM couples WHERE username = ?;';
