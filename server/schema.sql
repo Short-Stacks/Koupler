@@ -282,9 +282,10 @@ VALUES  ("Hiking", "Outdoors"),
         ("Opera", "Food & Entertainment"),
         ("Dancing", "Food & Entertainment"),
         ("Doggy Date", "Pets");
-        ("Live Musice", "Food & Entertainment"),
+        ("Live Music", "Food & Entertainment"),
         ("Coffee", "Food & Entertainment"),
         ("Sight-Seeing", "Culture");
+
 
 
 

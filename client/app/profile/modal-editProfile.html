@@ -3,14 +3,14 @@
     <h3 class="modal-title">Edit Your Profile</h3>
 </div>
 <div class="modal-body">
-    <input ng-model="ctrl.profileData.username" placeholder="username" required>
-    <input ng-model="ctrl.profileData.person_1_first_name" placeholder="user 1 first name">
-    <input ng-model="ctrl.profileData.person_1_last_name" placeholder="user 1 last name">
-    <input ng-model="ctrl.profileData.person_2_first_name" placeholder="user 2 first name">
-    <input ng-model="ctrl.profileData.person_2_last_name" placeholder="user 2 last name">
-    <input ng-model="ctrl.profileData.email" placeholder="email">
-    <input ng-model="ctrl.profileData.phone" placeholder="phone">
-    <input ng-model="ctrl.profileData.about_us" placeholder="about us">
+    <span class="black-text"><strong>Username  <strong></span><input ng-model="ctrl.profileData.username" placeholder="username" required><br>
+    <span class="black-text"><strong>First Name #1  <strong></span><input ng-model="ctrl.profileData.person_1_first_name" placeholder="user 1 first name"><br>
+    <span class="black-text"><strong>Last Name #1  <strong></span><input ng-model="ctrl.profileData.person_1_last_name" placeholder="user 1 last name"><br>
+    <span class="black-text"><strong>First Name #2  <strong></span><input ng-model="ctrl.profileData.person_2_first_name" placeholder="user 2 first name"><br>
+    <span class="black-text"><strong>Last Name #2  <strong></span><input ng-model="ctrl.profileData.person_2_last_name" placeholder="user 2 last name"><br>
+    <span class="black-text"><strong>E-mail  <strong></span><input ng-model="ctrl.profileData.email" placeholder="email"><br>
+    <span class="black-text"><strong>Phone  <strong></span><input ng-model="ctrl.profileData.phone" placeholder="phone"><br>
+    <span class="black-text"><strong>About Us  <strong></span><input ng-model="ctrl.profileData.about_us" placeholder="about us"><br>
 
     <div class="activities" ng-controller="ProfileCtrl as ctrl">
         <div class="activity" 
@@ -20,8 +20,8 @@
         </div>
     </div>
 
-    <input ng-model="ctrl.profileData.location_city" placeholder="your city">
-    <input ng-model="ctrl.profileData.location_zip" placeholder="your zip" required>
+    <span class="black-text"><strong>City  <strong></span><input ng-model="ctrl.profileData.location_city" placeholder="your city"><br>
+   <span class="black-text"><strong>Zip  <strong></span> <input ng-model="ctrl.profileData.location_zip" placeholder="your zip" required><br>
 
     <button type="file" ng-model="file" ngf-select="ctrl.uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">Upload A Profile Pic</button>
     <div>{{ctrl.errorMsg}}</div>
@@ -29,7 +29,5 @@
 </div>
 <div class="modal-footer editContainer">
     <button class="btn btn-primary" type="button" ng-click="ctrl.submitProfileEdit(ctrl.profileData)">Submit</button>
-    <button class="btn btn-primary" type="button" ng-click="ctrl.showMeActivitiesToAdd()">Submit</button>
-<!--     <button class="btn btn-warning" type="button" ng-click="ctrl.cancelEditModal()">Cancel</button> -->
 </div>
 </div>

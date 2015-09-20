@@ -22,15 +22,25 @@ module.exports = {
       if(err) console.log(err);
 
       if(data) {
+<<<<<<< HEAD
         responseData = data;
         if (requestor === username) {
           data[0].isAuthorizedToEdit = true;
+=======
+        if (requestor === username) {
+          data[0].isAuthorizedToEdit = true;
+          responseData = data;
+>>>>>>> (feature) can fully edit and update profile, can view activities in profile, working on adding activities during edit of profile
         };
         profile.getProfileActivities([ username ], function (err, data) {
           for (var i = 0; i < data.length; i++) {
             if (userActivities.indexOf(data[i].activity_name) == -1) {
               userActivities.push(data[i].activity_name);
+<<<<<<< HEAD
             }
+=======
+            })
+>>>>>>> (feature) can fully edit and update profile, can view activities in profile, working on adding activities during edit of profile
           }
           responseData.push(userActivities);
           res.send(responseData);
@@ -64,8 +74,22 @@ module.exports = {
     if (username === editor) {
       profile.editProfile(params, function(err,data) {
         console.log('Profile Edited');
+<<<<<<< HEAD
         res.end();
       });
+=======
+      });
+      for(var i = 0; i < activitiesToAdd.length;) {
+        profile.addActivity([ activitiesToAdd[i] ], function(err, data) {
+          if (err) {
+            res.send(err);
+          }
+          else {
+            res.end();
+          }
+        })
+      }
+>>>>>>> (feature) can fully edit and update profile, can view activities in profile, working on adding activities during edit of profile
     }
     else {
       res.status(403).send();
@@ -73,6 +97,7 @@ module.exports = {
     }
   },
 
+<<<<<<< HEAD
   addActivity: function(req, res, next) {
     var username = req.params.username;
     var activityToAdd = req.body.name;
@@ -86,6 +111,8 @@ module.exports = {
     })
   },
 
+=======
+>>>>>>> (feature) can fully edit and update profile, can view activities in profile, working on adding activities during edit of profile
   loadProfilePic: function(req, res, next) {
     console.log("requesting profile pic from database...");
 

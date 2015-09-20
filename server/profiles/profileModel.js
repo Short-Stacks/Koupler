@@ -46,6 +46,7 @@ module.exports = {
     })
   },
 
+
   getProfilePic: function(params, callback) {
     var queryString = 'SELECT photo_filepath FROM couples WHERE username = ?;';
 

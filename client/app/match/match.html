@@ -14,7 +14,7 @@
     <!-- </div> -->
     <p class="row"><h4>City</h4> {{ match.location_city }} </p>
     <p class="row"><h4>About Us</h4> {{ match.about_us }} </p>
-    <button class="signupbutton" ng-click="console.log(match.username)">Start Chatting</button>
+    <a ng-href="#/profile/{{ match.username }}"><button class="signupbutton">See Their Profile</a>
   </div>
 
 </div>

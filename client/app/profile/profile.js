@@ -7,7 +7,6 @@ angular.module('koupler.profile', [
   var vm = this;
   //placeholder for POST request until routeParam is set up
   vm.username = $state.params.username;
-  $window.localStorage.setItem('Koup_user', vm.username);
 
   $window.localStorage.setItem('Koup_user', vm.username);
   vm.activities = Activities.getActivities();
@@ -34,6 +33,10 @@ angular.module('koupler.profile', [
         console.log("getProfileInfo:", response.data);
         vm.profileData = response.data[0];
         vm.userActivities = response.data[1];
+<<<<<<< HEAD
+=======
+        vm.profileData.activitiesToAdd = [];
+>>>>>>> (feature) can fully edit and update profile, can view activities in profile, working on adding activities during edit of profile
       });
 
   };
@@ -53,13 +56,25 @@ angular.module('koupler.profile', [
     });
   };
 
+  vm.submitProfileEdit = function() {
+    $http.post('/profile/' + vm.username + '/edit', vm.profileData)
+      .then(function(response) {
+        $state.reload();
+      });
+  }
 
+<<<<<<< HEAD
   vm.submitProfileEdit = function(data) {
     $http.post('/profile/' + vm.username + '/edit', data)
       .then(function(response) {
         $state.reload();
       });
   };
+=======
+  // vm.cancelEditModal = function () {
+  //   $modalInstance.dismiss('cancel');
+  // };
+>>>>>>> (feature) can fully edit and update profile, can view activities in profile, working on adding activities during edit of profile
 
   vm.uploadFiles = function(file) {
     vm.f = file;
