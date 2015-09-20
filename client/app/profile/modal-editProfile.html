@@ -4,19 +4,32 @@
 </div>
 <div class="modal-body">
 <h1>Edit Your Profile</h1>
-    <input ng-model="ctrl.profileData.username" placeholder="username">
+    <input ng-model="ctrl.profileData.username" placeholder="username" required>
     <input ng-model="ctrl.profileData.person_1_first_name" placeholder="user 1 first name">
     <input ng-model="ctrl.profileData.person_1_last_name" placeholder="user 1 last name">
     <input ng-model="ctrl.profileData.person_2_first_name" placeholder="user 2 first name">
     <input ng-model="ctrl.profileData.person_2_last_name" placeholder="user 2 last name">
+    <input ng-model="ctrl.profileData.email" placeholder="email">
+    <input ng-model="ctrl.profileData.phone" placeholder="phone">
     <input ng-model="ctrl.profileData.about_us" placeholder="about us">
+
+    <div class="activities" ng-controller="ProfileCtrl as ctrl">
+        <div class="activity" 
+            ng-repeat="activity in ctrl.activities" 
+            ng-click="ctrl.profileData.activitiesToAdd.push(activity); console.log('clicked!')">
+            {{ activity.name }}
+        </div>
+    </div>
+
+    <input ng-model="ctrl.profileData.location_city" placeholder="your city">
+    <input ng-model="ctrl.profileData.location_zip" placeholder="your zip" required>
+
     <button type="file" ng-model="file" ngf-select="ctrl.uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">Upload A Profile Pic</button>
     <div>{{ctrl.errorMsg}}</div>
-
   <img ngf-src="file">
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ok()">Submit</button>
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" type="button" ng-click="ctrl.submitProfileEdit()">Submit</button>
+<!--     <button class="btn btn-warning" type="button" ng-click="ctrl.cancelEditModal()">Cancel</button> -->
 </div>
 </div>

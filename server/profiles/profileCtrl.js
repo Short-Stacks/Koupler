@@ -5,7 +5,6 @@ var formidable = require('formidable');
 
 var getUsername = function(token) {
   var decodedToken = jwt.decode(token);
-  console.log("decodedToken:" , decodedToken);
   return decodedToken.username;
 };
 
@@ -15,18 +14,71 @@ module.exports = {
     var username = req.params.username;
     var token = req.headers['x-access-token'];
     var requestor = getUsername(token); //note strange but working syntax
+    var userActivities = [];
+    var responseData;
 
     profile.getProfileInfo([ username ], function(err, data) {
       if(err) console.log(err);
 
       if(data) {
-        console.log("profile data received!", data);
         if (requestor === username) {
           data[0].isAuthorizedToEdit = true;
-        }
-        res.send(data);
+          responseData = data;
+        };
+        profile.getProfileActivities([ username ], function (err, data) {
+          for (var i = 0; i < data.length; i++) {
+            if (userActivities.indexOf(data[i].activity_name) == -1) {
+              userActivities.push(data[i].activity_name);
+            })
+          }
+          responseData.push(userActivities);
+          res.send(responseData);
+          res.end();
+        })
       }
     });
+  },
+
+  editProfile: function(req, res, next) {
+    var username = req.params.username;
+    var token = req.headers['x-access-token'];
+    var editor = getUsername(token);
+    console.log("edit profile req.body:", req.body);
+    var activitiesToAdd = req.body.activitiesToAdd;
+    var params = [];
+
+    params[0] = req.body.username;
+    params[1] = req.body.person_1_first_name;
+    params[2] = req.body.person_1_last_name;
+    params[3] = req.body.person_2_first_name;
+    params[4] = req.body.person_2_last_name;
+    params[5] = req.body.email;
+    params[6] = req.body.phone;
+    params[7] = req.body.about_us;
+    params[8] = req.body.location_city;
+    params[9] = req.body.location_zip;
+    params[10] = req.body.id;
+
+    console.log("editProfile params:", params)
+    if (username === editor) {
+      profile.editProfile(params, function(err,data) {
+        console.log('Profile Edited');
+      });
+      for(var i = 0; i < activitiesToAdd.length;) {
+        profile.addActivity([ activitiesToAdd[i] ], function(err, data) {
+          if (err) {
+            res.send(err);
+          }
+          else {
+            res.end();
+          }
+        })
+      }
+    }
+    else {
+      res.status(403).send();
+      res.end();
+    }
   },
 
   loadProfilePic: function(req, res, next) {

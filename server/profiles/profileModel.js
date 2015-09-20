@@ -17,13 +17,20 @@ var moment = require('moment');
 module.exports = {
 
   getProfileInfo: function(params, callback) {
-    console.log("inget getProfileInfo!");
     var queryString = 'SELECT * FROM couples WHERE couples.username = ?;';
-    //queryDb(queryString, params, callback);
     dbConnection.query(queryString, params, callback);
   },
 
-  // params: [username]
+  getProfileActivities: function(params, callback) {
+    var queryString = 'SELECT a.activity_name, c.username FROM activities AS a LEFT JOIN couples_activities AS ca ON a.id = ca.activities_id LEFT JOIN couples AS c ON c.id = ca.couples_id WHERE username = (?);';
+    dbConnection.query(queryString, params, callback);  
+  },
+
+  editProfile: function(params, callback) {
+    var queryString = 'UPDATE couples SET username=?, person_1_first_name=?, person_1_last_name=?, person_2_first_name=?, person_2_last_name=?, email=?, phone=?, about_us=?, location_city=?, location_zip=? WHERE id=?;'
+    dbConnection.query(queryString, params, callback);
+  },
+
   getProfilePic: function(params, callback) {
     var queryString = 'SELECT photo_filepath FROM couples WHERE username = ?;';
 

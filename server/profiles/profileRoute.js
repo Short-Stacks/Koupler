@@ -4,6 +4,7 @@ module.exports = function (app) {
   console.log("in profileRoute!");
   
   app.get('/:username', profileCtrl.loadProfile);
+  app.post('/:username/edit', profileCtrl.editProfile);
 
   app.get('/:username/pic', profileCtrl.loadProfilePic);
   app.post('/:username/pic', profileCtrl.storeProfilePic);
