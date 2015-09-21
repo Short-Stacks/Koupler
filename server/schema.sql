@@ -322,7 +322,6 @@ WHERE (activities.activity_name='Dinner' OR
 AND couples.username='bowzers';
 
 
-
 INSERT INTO couples_activities (couples_id, activities_id)
 SELECT couples.id, activities.id
 FROM couples, activities
