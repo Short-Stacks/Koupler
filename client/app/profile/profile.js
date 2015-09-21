@@ -17,6 +17,7 @@ angular.module('koupler.profile', [
 
 
   vm.profileData = {};
+  vm.hideProfilePic = false;
 
   // when true, hides the profile pic and replaced with uploaded pic
   vm.hideProfilePic = false;
@@ -39,10 +40,13 @@ angular.module('koupler.profile', [
 >>>>>>> (feature) can fully edit and update profile, can view activities in profile, working on adding activities during edit of profile
       });
 
+<<<<<<< HEAD
   };
 
   vm.addActivity = function(activity) {
     $http.post('/profile/' + vm.username + '/addActivity', activity);
+=======
+>>>>>>> (fix) profile pic changes when new photo uploaded
   };
 
   vm.getProfileInfo();
