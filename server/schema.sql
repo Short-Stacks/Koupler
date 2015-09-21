@@ -178,6 +178,7 @@ VALUES  ("Hiking", "Outdoors"),
         ("Opera", "Food & Entertainment"),
         ("Live Music", "Food & Entertainment"),
         ("Dancing", "Food & Entertainment"),
+        ("Coffee", "Food & Entertainment"),
         ("Sight-Seeing", "Culture"),
         ("Doggy Date", "Pets");
 
@@ -187,6 +188,12 @@ SELECT couples.id, activities.id
 FROM couples, activities
 WHERE couples.username='pitts'
 AND activities.activity_name='Dinner';
+
+INSERT INTO couples_activities (couples_id, activities_id)
+SELECT couples.id, activities.id
+FROM couples, activities
+WHERE couples.username='pitts'
+AND activities.activity_name='Live Music';
 
 INSERT INTO couples_activities (couples_id, activities_id)
 SELECT couples.id, activities.id

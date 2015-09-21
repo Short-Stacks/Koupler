@@ -13,12 +13,7 @@ var queryDb = function(queryString, params, callback) {
 module.exports = {
   
   postActivity: function(params, callback) {
-    var queryString = 'INSERT INTO activities (username, activity, activity_date) VALUES (?, ?, ?)';
-    queryDb(queryString, params, callback);
-  }
-
-  , getActivities: function(params, callback) {
-    var queryString = 'SELECT c.username, c.person_1_first_name, c.person_2_first_name, c.email, c.phone, c.photo_filepath, a.activity FROM couples c JOIN activities a ON c.username = a.username WHERE c.username <> ? AND a.activity IN (SELECT activity FROM activities WHERE username = ?);';
+    var queryString = 'INSERT INTO couples_activities (couples_id, activity_id) VALUES ((SELECT id FROM couples c WHERE c.username = ?), (SELECT id FROM activities a WHERE a.activity_name = ?))';
     queryDb(queryString, params, callback);
   }
 
@@ -32,10 +27,5 @@ module.exports = {
       var queryString = 'SELECT * FROM couples c, couples_activities j WHERE j.couples_id = c.id AND j.activities_id = (?)';
       queryDb(queryString, [ activityId ], callback);
     });
-  }
-
-  , getZipCoords: function(params, callback) {
-    var queryString = 'SELECT * FROM zip_codes z WHERE z.zip = (?)';
-    queryDb(queryString, params, callback);
   }
 };

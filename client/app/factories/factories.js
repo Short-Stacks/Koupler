@@ -5,11 +5,11 @@ angular.module('koupler.factories', [])
                     {'name': 'Hiking'},
                     {'name': 'Dinner'},
                     {'name': 'Opera'},
-                    {'name': 'Dancing'},
-                    {'name': 'Music Show'},
+                    {'name': 'Dancing'}, 
+                    {'name': 'Live Music'},
                     {'name': 'Coffee'},
-                    {'name': 'Swinging'},
-                    {'name': 'Sight-Seeing'}
+                    {'name': 'Sight-Seeing'},
+                    {'name': 'Doggy Date'}
                   ];
 
   var getActivities = function() {

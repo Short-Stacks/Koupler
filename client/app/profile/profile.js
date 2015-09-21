@@ -7,12 +7,11 @@ angular.module('koupler.profile', [
   var vm = this;
   //placeholder for POST request until routeParam is set up
   vm.username = $state.params.username;
-
+  vm.activities = Activities.getActivities();
+  
   vm.goToActivities = function() {
     $state.go('activities');
   };
-
-  vm.profileData = {};
 
   vm.getProfileInfo = function() {
     var token = AuthTokenFactory.getToken();
@@ -25,12 +24,18 @@ angular.module('koupler.profile', [
         }
         console.log("getProfileInfo:", response.data);
         vm.profileData = response.data[0];
+        vm.userActivities = response.data[1];
       });
+  };
+
+  vm.addActivity = function(activity) {
+    $http.post('/profile/' + vm.username + '/addActivity', activity);
   };
 
   vm.getProfileInfo();
 
   vm.showEditModal = function() {
+    vm.activitiesToAdd = [];
     var editModal = $modal.open({
       animation: $scope.animationsEnabled,
       templateUrl: 'app/profile/modal-editProfile.html',
@@ -39,6 +44,12 @@ angular.module('koupler.profile', [
   };
 
 
+  vm.submitProfileEdit = function(data) {
+    $http.post('/profile/' + vm.username + '/edit', data)
+      .then(function(response) {
+        $state.reload();
+      });
+  };
 
   vm.uploadFiles = function(file) {
     vm.f = file;
