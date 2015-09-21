@@ -85,7 +85,7 @@ module.exports = {
     request.get(fourSquareQuery, function(req, data, body) {
       body = JSON.parse(body);
       for (var i = 0; i < body.response.groups[0].items.length; i++) {
-        console.log(body.response.groups[0].items[i].venue.name);
+        console.log(body.response.groups[0].items[i].venue);
       }
       // console.log(body.response.groups[0].items);
       res.send();

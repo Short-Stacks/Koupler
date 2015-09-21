@@ -13,6 +13,7 @@ var moment = require('moment');
     //callback(err, data);
   //});
 //};
+var couples_activities = couples_activities || [];
 
 module.exports = {
 
@@ -32,7 +33,7 @@ module.exports = {
   },
 
   addActivity: function(username, activity, callback) {
-    var couples_activities = couples_activities || [];
+    
     dbConnection.query('SELECT id FROM couples c WHERE c.username =?', [ username ], function(err, data) {
       var couplesId = data[0].id;
       dbConnection.query('SELECT id FROM activities a WHERE a.activity_name=?', [ activity ], function(err, data) {
