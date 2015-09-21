@@ -16,15 +16,21 @@ module.exports = {
         if (err) {
           console.error(err);
         }
-        var params = [req.body.username,
-                      hash,
-                      req.body.lastName1,
-                      req.body.firstName1,
-                      req.body.lastName2,
-                      req.body.firstName2,
-                      req.body.email,
-                      req.body.phoneNumber,
-                      './m1.png'];
+        var params = [
+          req.body.username,
+          hash,
+          req.body.lastName1,
+          req.body.firstName1,
+          req.body.lastName2,
+          req.body.firstName2,
+          req.body.email,
+          req.body.phoneNumber,
+          './m1.png',
+          req.body.city,
+          req.body.zipCode
+        ];
+
+        console.log('params', params);
         //inserting data into the DB
         couple.postCouple(params, function(err, data) {
           if (err) {
