@@ -164,11 +164,117 @@ CREATE TABLE messages (
 /************ TEST DATA ************/
 /***********************************/
 
--- password for both users is 1234
-INSERT INTO couples (username, hash, person_1_last_name, person_1_first_name, person_2_last_name, person_2_first_name, email, phone, likes, about_us, photo_filepath, location_city, location_zip)
-VALUES ("pitts", "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC", "Pitt", "Brad", "Jolie", "Angelina", "brangelina@hollywood.com", 1234567890, 0, "We have six children. Max, Pax, Zahara, Shiloh, Knox, and Vivienne", "add/path/to/pic.jpg", "San Francisco", 94108),
-       ("beckhams", "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC", "Beckham", "Victoria", "Beckham", "David", "soccer@euroleague.com", 1234567890, 0, "We have four children. Brooklyn, Romeo, Cruz, and Harper", "add/path/to/pic.jpg", "San Francisco", 94104),
-       ("bowzers", "bowzers", "duffy", "scruffy", "duffy", "muffy", "justbeindogs@dogs.com", 57485747, 2, "Just a couple of dogs, bein' dogs.", "add/path/to/pic.jpg", "Los Angeles", 90210);
+-- password for all users is 1234
+INSERT INTO couples
+    (username,
+     hash,
+     person_1_last_name,
+     person_1_first_name,
+     person_2_last_name,
+     person_2_first_name,
+     email,
+     phone,
+     likes,
+     about_us,
+     photo_filepath,
+     location_city,
+     location_zip)
+VALUES
+    ("pitts",
+     "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC",
+     "Pitt",
+     "Brad",
+     "Jolie",
+     "Angelina",
+     "brangelina@hollywood.com",
+     415932432,
+     0,
+     "As friends working at a coffee shop I'm not good at filling out these things hiking. I'm pretty laid-back sleeping late working on my body and my mind what to order off of the menu trying this for the first time, outdoor activities discussing politics using my farmshare I don't take myself too seriously home brewing. Only looking for something casual Neutral Milk Hotel bacon knowing the difference between their/there/they're passionate about if you like my profile.
+
+Game of Thrones it depends on the night Doctor Who joking around. Activity partners The Daily Show as friends just looking to have some fun joking around, thinking about trying yoga joking around crossfit beach days my dogs. Strong and confident recently moved back I'm just a regular guy Family Guy my smartphone my goofy smile.",
+     "http://static.ibnlive.in.com/pix/slideshow/02-2010/we-are-still/brangelina_630_1.jpg",
+     "San Francisco",
+     94108),
+
+    ("beckhams",
+     "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC",
+     "Beckham",
+     "Victoria",
+     "Beckham",
+     "David",
+     "soccer@euroleague.com",
+     415482302,
+     0,
+     "I don't really like talking about myself my beard chilling at a bar with friends extrovert. Outdoor activities just looking to have some fun you should message me Infinite Jest Portlandia, Arrested Development The Daily Show short-term dating activity partners too many to list. Chilling at a bar with friends too many to list fascinates me there's no such thing as a typical Friday night making lasagna from scratch fixing my scooter.
+
+I'm looking for art school I don't take myself too seriously vinyl records. Making lasagna from scratch playing my guitar trying this for the first time mountain biking just looking to have some fun, foodie what to order off of the menu working on my body and my mind short-term dating skiing. I'm not good at filling out these things really hoppy beers Netflix outdoorsy sleeping late everything but country music.",
+     "http://i.telegraph.co.uk/multimedia/archive/02714/the-beckhams_2714726b.jpg",
+     "San Francisco",
+     94104),
+
+    ("bowzers",
+     "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC",
+     "Duffy",
+     "Scruffy",
+     "Duffy",
+     "Muffy",
+     "justbeindogs@dogs.com",
+     415930949,
+     2,
+     "Exploring the city Indian food making people laugh share a new experience. Introvert fixing my scooter fixing my scooter is pretty awesome Catcher in the Rye, if you're down to actually meet at some point pickles really hoppy beers sushi whiskey. Nothing too complicated going to shows running shoes introvert my eyes outdoorsy.
+
+Parallel parking recently moved back skiing loyal. Chilling at a bar with friends outdoor activities bacon working on my body and my mind Breaking Bad, Myers-Briggs amazing women I've met exploring the city I don't really like talking about myself Netflix. Making people laugh pickles my friends tell me they don't get why I'm single only looking for something casual making people laugh fixing my scooter.",
+     "http://www.thepoochmobile.com/wp-content/uploads/2014/05/mobile-dog-wash-denver-las-vegas-two-dogs-02.jpg",
+     "San Francisco",
+     94118),
+
+    ("fredricksens",
+     "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC",
+     "Fredricksen",
+     "Carl",
+     "Fredricksen",
+     "Ellie",
+     "fredricksens@mks.com",
+     415928821,
+     2,
+     "Discussing politics Game of Thrones joking around degree in philosophy. If you like my profile going back to school degree in philosophy exploring the city I'm just a regular guy, activity partners adventures happy hour joking around hiking. Mountain biking crossfit Indian food exploring the city dubstep listening to music.
+
+    Everything but country music mountain biking if you're still reading this Ethiopian. I'm really good at Family Guy my cats optimistic ask me anything, I'm a good listener beach days I value art there's no such thing as a typical Friday night short-term dating. Introvert skiing whatever topic is on NPR Myers-Briggs my eyes honest and direct.",
+     "http://cos.h-cdn.co/assets/14/31/980x487/1406832048-1406823730-old_couple.png",
+     "San Francisco",
+     94132),
+
+    ("turins",
+     "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC",
+     "Turin",
+     "Jackson",
+     "Turin",
+     "Shirley",
+     "turins@italy.com",
+     415839912,
+     2,
+     "I'm looking for as friends I don't take myself too seriously Ethiopian. Thinking about trying yoga stepping outside your comfort zone working on my body and my mind I value art The Daily Show, short-term dating fitness I'm not good at filling out these things trying this for the first time Portlandia. Rock climbing mountain biking beach days new friends degree in philosophy feminism.
+
+    Feminism short-term dating Neutral Milk Hotel my cats. My cats I enjoy my friends tell me they don't get why I'm single amazing women I've met foreign films, fascinates me sushi seeing as many countries as possible I enjoy I'm really good at. Vinyl records Murakami local sports teams optimistic adventures optimistic.",
+     "http://photos.costume-works.com/full/skeleton_couple.jpg",
+     "San Francisco",
+     94127),
+
+    ("mouses",
+     "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC",
+     "Mouse",
+     "Mickey",
+     "Mouse",
+     "Minnie",
+     "mouse@rollin.com",
+     415930934,
+     2,
+     "Going to the gym passionate about my height and shoulders bikes. Myers-Briggs watching a movie art school chilling at a bar with friends I'm just a regular guy, my eyes glass half-full extrovert fixing my scooter recently moved back. If you're down to actually meet at some point it depends on the night art school I have a crush on my height and shoulders happy hour.
+
+    I have a crush on my smartphone loyal the simple things in life. Everything but country music my beard training for the marathon making people laugh shoot me a message, working on my body and my mind if you're still reading this extrovert Netflix fascinates me. Watching a movie activity partners whiskey optimistic amazing women I've met if you think we have something in common.",
+     "http://s3.amazonaws.com/kidzworld_photo/images/2011125/3f97cf09-26fb-42dd-96e2-891335d4ca99/gallery_couples1.jpg",
+     "San Francisco",
+     94114);
 
 INSERT INTO activities (activity_name, activity_type)
 VALUES  ("Hiking", "Outdoors"),
@@ -186,23 +292,63 @@ VALUES  ("Hiking", "Outdoors"),
 INSERT INTO couples_activities (couples_id, activities_id)
 SELECT couples.id, activities.id
 FROM couples, activities
-WHERE couples.username='pitts'
-AND activities.activity_name='Dinner';
+WHERE (activities.activity_name='Dinner' OR
+       activities.activity_name='Opera' OR
+       activities.activity_name='Hiking' OR
+       activities.activity_name='Cat Staring' OR
+       activities.activity_name='Doggy Date')
+AND couples.username='pitts';
 
 INSERT INTO couples_activities (couples_id, activities_id)
 SELECT couples.id, activities.id
 FROM couples, activities
-WHERE couples.username='pitts'
-AND activities.activity_name='Live Music';
+
+WHERE (activities.activity_name='Dinner' OR
+       activities.activity_name='Opera' OR
+       activities.activity_name='Dancing' OR
+       activities.activity_name='Live Music' OR
+       activities.activity_name='Cat Staring')
+AND couples.username='beckhams';
+
 
 INSERT INTO couples_activities (couples_id, activities_id)
 SELECT couples.id, activities.id
 FROM couples, activities
-WHERE couples.username='beckhams'
-AND activities.activity_name='Dinner';
+
+WHERE (activities.activity_name='Dinner' OR
+       activities.activity_name='Unicorn Hunting' OR
+       activities.activity_name='Sight-Seeing' OR
+       activities.activity_name='Live Music' OR
+       activities.activity_name='Hiking')
+AND couples.username='bowzers';
+
+
 
 INSERT INTO couples_activities (couples_id, activities_id)
 SELECT couples.id, activities.id
 FROM couples, activities
-WHERE couples.username='bowzers'
-AND activities.activity_name='Dinner';
+WHERE (activities.activity_name='Dinner' OR
+       activities.activity_name='Dancing' OR
+       activities.activity_name='Sight-Seeing' OR
+       activities.activity_name='Unicorn Hunting' OR
+       activities.activity_name='Doggy Date')
+AND couples.username='fredricksens';
+
+INSERT INTO couples_activities (couples_id, activities_id)
+SELECT couples.id, activities.id
+FROM couples, activities
+WHERE (activities.activity_name='Cat Staring' OR
+       activities.activity_name='Dancing' OR
+       activities.activity_name='Sight-Seeing' OR
+       activities.activity_name='Doggy Date')
+AND couples.username='turins';
+
+INSERT INTO couples_activities (couples_id, activities_id)
+SELECT couples.id, activities.id
+FROM couples, activities
+WHERE (activities.activity_name='Dinner' OR
+       activities.activity_name='Live Music' OR
+       activities.activity_name='Unicorn Hunting' OR
+       activities.activity_name='Hiking')
+AND couples.username='mouses';
+
