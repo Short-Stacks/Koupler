@@ -16,23 +16,6 @@ module.exports = {
         if (err) {
           console.error(err);
         }
-<<<<<<< HEAD
-        var params = [
-          req.body.username,
-          hash,
-          req.body.lastName1,
-          req.body.firstName1,
-          req.body.lastName2,
-          req.body.firstName2,
-          req.body.email,
-          req.body.phoneNumber,
-          './m1.png',
-          req.body.city,
-          req.body.zipCode
-        ];
-
-        console.log('params', params);
-=======
         var params = [req.body.username,
                       hash,
                       req.body.lastName1,
@@ -42,7 +25,6 @@ module.exports = {
                       req.body.email,
                       req.body.phoneNumber,
                       './m1.png'];
->>>>>>> 6adbe0f... (fix) invalid username/password crashing server
         //inserting data into the DB
         couple.postCouple(params, function(err, data) {
           if (err) {
