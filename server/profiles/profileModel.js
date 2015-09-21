@@ -31,6 +31,16 @@ module.exports = {
     dbConnection.query(queryString, params, callback);
   },
 
+  addActivity: function(username, activity, callback) {
+    dbConnection.query('SELECT id FROM couples c WHERE c.username =?', [ username ], function(err, data) {
+      var couplesId = data[0].id;
+      dbConnection.query('SELECT id FROM activities a WHERE a.activity_name=?', [ activity ], function(err, data) {
+        var activityId = data[0].id;
+        dbConnection.query('INSERT into couples_activities (couples_id, activities_id) VALUES (?,?)', [ couplesId, activityId ], callback);
+      })
+    })
+  },
+
   getProfilePic: function(params, callback) {
     var queryString = 'SELECT photo_filepath FROM couples WHERE username = ?;';
 

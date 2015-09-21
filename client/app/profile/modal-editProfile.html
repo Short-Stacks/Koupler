@@ -1,9 +1,8 @@
 <div ng-controller="ProfileCtrl as ctrl">
-<div class="modal-header">
+<div class="modal-header editContainer">
     <h3 class="modal-title">Edit Your Profile</h3>
 </div>
 <div class="modal-body">
-<h1>Edit Your Profile</h1>
     <input ng-model="ctrl.profileData.username" placeholder="username" required>
     <input ng-model="ctrl.profileData.person_1_first_name" placeholder="user 1 first name">
     <input ng-model="ctrl.profileData.person_1_last_name" placeholder="user 1 last name">
@@ -16,7 +15,7 @@
     <div class="activities" ng-controller="ProfileCtrl as ctrl">
         <div class="activity" 
             ng-repeat="activity in ctrl.activities" 
-            ng-click="ctrl.profileData.activitiesToAdd.push(activity); console.log('clicked!')">
+            ng-click="ctrl.addActivity(activity)">
             {{ activity.name }}
         </div>
     </div>
@@ -28,8 +27,9 @@
     <div>{{ctrl.errorMsg}}</div>
   <img ngf-src="file">
 </div>
-<div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ctrl.submitProfileEdit()">Submit</button>
+<div class="modal-footer editContainer">
+    <button class="btn btn-primary" type="button" ng-click="ctrl.submitProfileEdit(ctrl.profileData)">Submit</button>
+    <button class="btn btn-primary" type="button" ng-click="ctrl.showMeActivitiesToAdd()">Submit</button>
 <!--     <button class="btn btn-warning" type="button" ng-click="ctrl.cancelEditModal()">Cancel</button> -->
 </div>
 </div>

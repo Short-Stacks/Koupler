@@ -6,6 +6,8 @@ module.exports = function (app) {
   app.get('/:username', profileCtrl.loadProfile);
   app.post('/:username/edit', profileCtrl.editProfile);
 
+  app.post('/:username/addActivity', profileCtrl.addActivity);
+
   app.get('/:username/pic', profileCtrl.loadProfilePic);
   app.post('/:username/pic', profileCtrl.storeProfilePic);
 

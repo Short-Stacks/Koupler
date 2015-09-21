@@ -63,22 +63,36 @@ module.exports = {
     if (username === editor) {
       profile.editProfile(params, function(err,data) {
         console.log('Profile Edited');
+        res.end();
       });
-      for(var i = 0; i < activitiesToAdd.length;) {
-        profile.addActivity([ activitiesToAdd[i] ], function(err, data) {
-          if (err) {
-            res.send(err);
-          }
-          else {
-            res.end();
-          }
-        })
-      }
+      // for(var i = 0; i < activitiesToAdd.length;) {
+      //   profile.addActivity([ activitiesToAdd[i] ], function(err, data) {
+      //     if (err) {
+      //       res.send(err);
+      //     }
+      //     else {
+      //       res.end();
+      //     }
+      //   })
+      // }
     }
     else {
       res.status(403).send();
       res.end();
     }
+  },
+
+  addActivity: function(req, res, next) {
+    var username = req.params.username;
+    var activityToAdd = req.body.name;
+    profile.addActivity(username, activityToAdd, function(err, data) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.end();
+      }
+    })
   },
 
   loadProfilePic: function(req, res, next) {
