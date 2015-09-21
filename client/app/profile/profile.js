@@ -7,6 +7,7 @@ angular.module('koupler.profile', [
   var vm = this;
   //placeholder for POST request until routeParam is set up
   vm.username = $state.params.username;
+  $window.localStorage.setItem('Koup_user', vm.username);
 
   $window.localStorage.setItem('Koup_user', vm.username);
   vm.activities = Activities.getActivities();

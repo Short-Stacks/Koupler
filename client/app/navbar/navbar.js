@@ -25,23 +25,13 @@ angular.module("koupler").directive("navBar", ['$window', '$state', function($wi
         return false;
       };
 
-      scope.atHomeView = function() {
-        if ($state.current.name === '') {
-          return true;
-        }
-        return false;
-      };
-
       scope.goToActivities = function() {
         $state.go('activities');
       };
 
       scope.goToProfile = function() {
-        $state.go('profile');
-      };
-
-      scope.goToHome = function() {
-        $state.go('');
+        var username = $window.localStorage.getItem('Koup_user');
+        $state.go('profile', {username: username});
       };
 
       //returns true if user is logged in to either profile or dash view
