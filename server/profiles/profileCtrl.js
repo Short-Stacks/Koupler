@@ -14,6 +14,7 @@ module.exports = {
     var username = req.params.username;
     var token = req.headers['x-access-token'];
     var requestor = getUsername(token); //note strange but working syntax
+
     var userActivities = [];
     var responseData;
 
@@ -21,9 +22,9 @@ module.exports = {
       if(err) console.log(err);
 
       if(data) {
+        responseData = data;
         if (requestor === username) {
           data[0].isAuthorizedToEdit = true;
-          responseData = data;
         };
         profile.getProfileActivities([ username ], function (err, data) {
           for (var i = 0; i < data.length; i++) {

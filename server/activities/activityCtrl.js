@@ -12,7 +12,7 @@ var getUsername = function(token) {
 };
 
 module.exports = {
-  
+
   // Insert couple's activity decision in database
   postActivity: function(req, res, next) {
     var activityChosen = req.body.activity.name;
@@ -31,7 +31,7 @@ module.exports = {
 
   getActivities: function(req, res, next) {
     var username = getUsername(req.query.token);
-    
+
     return activity.getActivities([username, username], function(err, data) {
       // var couple = data[Math.floor(Math.random() * (data.length - 1))];
       console.log(data);
@@ -54,7 +54,7 @@ module.exports = {
 
         //query to Zip Code API to find distances between user's zip/city and matches' zip/city
         //to match search parameters
-        var distanceQueryString = 'https://www.zipcodeapi.com/rest/jn6yHpsdgJEIQpLZPmNMX6Ik5xEuZbPjzVRglktB38jUx4UmrH9oNRJTpnoozdI8/distance.json/' + userZipCode + '/' + match.location_zip +'/miles'; 
+        var distanceQueryString = 'https://www.zipcodeapi.com/rest/jn6yHpsdgJEIQpLZPmNMX6Ik5xEuZbPjzVRglktB38jUx4UmrH9oNRJTpnoozdI8/distance.json/' + userZipCode + '/' + match.location_zip +'/miles';
         request.get(distanceQueryString, function(err, data, body) {
           body = JSON.parse(body);
           //we must keep an API get counter, and only when all matches have been checked can we send a response
@@ -66,13 +66,13 @@ module.exports = {
           if (apiGetCount === allMatches.length) {
             res.send(collection);
           }
-        })
-      }
+        });
+      };
 
       for (var i = 0; i < allMatches.length; i++) {
         getDistance(allMatches[i], responseData);
-      };
-    });   
+      }
+    });
   },
 
   getSuggestions: function(req, res, next) {
@@ -89,6 +89,6 @@ module.exports = {
       }
       // console.log(body.response.groups[0].items);
       res.send();
-    })
+    });
   }
 };

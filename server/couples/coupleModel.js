@@ -11,13 +11,13 @@ var queryDb = function(queryString, params, callback) {
 };
 
 module.exports = {
-  
-  postCouple: function(params, callback) {
-    var queryString = 'INSERT INTO couples (username, hash, person_1_last_name, person_1_first_name, person_2_last_name, person_2_first_name, email, phone, photo_filepath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);';
-    queryDb(queryString, params, callback);
-  }
 
-  , getCouple: function(params, callback) {
+  postCouple: function(params, callback) {
+    var queryString = 'INSERT INTO couples (username, hash, person_1_last_name, person_1_first_name, person_2_last_name, person_2_first_name, email, phone, photo_filepath, location_city, location_zip ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
+    queryDb(queryString, params, callback);
+  },
+
+  getCouple: function(params, callback) {
     var queryString = 'SELECT username, hash FROM couples WHERE username = ?;';
     queryDb(queryString, params, callback);
   }
