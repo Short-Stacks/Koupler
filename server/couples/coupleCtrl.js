@@ -16,6 +16,7 @@ module.exports = {
         if (err) {
           console.error(err);
         }
+<<<<<<< HEAD
         var params = [
           req.body.username,
           hash,
@@ -31,6 +32,17 @@ module.exports = {
         ];
 
         console.log('params', params);
+=======
+        var params = [req.body.username,
+                      hash,
+                      req.body.lastName1,
+                      req.body.firstName1,
+                      req.body.lastName2,
+                      req.body.firstName2,
+                      req.body.email,
+                      req.body.phoneNumber,
+                      './m1.png'];
+>>>>>>> 6adbe0f... (fix) invalid username/password crashing server
         //inserting data into the DB
         couple.postCouple(params, function(err, data) {
           if (err) {
@@ -59,7 +71,7 @@ module.exports = {
         console.error('Error: Model does not return query results');
       }
       //check if the password Hash === typed in password
-      if (data) {
+      if(data.length !== 0) {
         bcrypt.compare(req.body.password, data[0]['hash'], function(err, data) {
           if (err) {
             res.status(401).end('Either username or password is incorrect');

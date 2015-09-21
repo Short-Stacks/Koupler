@@ -18,6 +18,7 @@ angular.module('koupler.auth', [])
         // $location.path('/profile/' + username);
       },
       function(err){
+
         console.log(err);
       });
   };
