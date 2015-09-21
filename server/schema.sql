@@ -27,7 +27,7 @@ CREATE TABLE couples (
   person_2_last_name VARCHAR(32) NOT NULL,
   person_2_first_name VARCHAR(32) NOT NULL,
   email VARCHAR(64),
-  phone INT(10),
+  phone BIGINT(10),
   likes INT(10),
   about_us VARCHAR(4096),
   photo_filepath VARCHAR(256),
@@ -187,7 +187,7 @@ VALUES
      "Jolie",
      "Angelina",
      "brangelina@hollywood.com",
-     415932432,
+     4159332432,
      0,
      "As friends working at a coffee shop I'm not good at filling out these things hiking. I'm pretty laid-back sleeping late working on my body and my mind what to order off of the menu trying this for the first time, outdoor activities discussing politics using my farmshare I don't take myself too seriously home brewing. Only looking for something casual Neutral Milk Hotel bacon knowing the difference between their/there/they're passionate about if you like my profile.
 
@@ -203,7 +203,7 @@ Game of Thrones it depends on the night Doctor Who joking around. Activity partn
      "Beckham",
      "David",
      "soccer@euroleague.com",
-     415482302,
+     4154832302,
      0,
      "I don't really like talking about myself my beard chilling at a bar with friends extrovert. Outdoor activities just looking to have some fun you should message me Infinite Jest Portlandia, Arrested Development The Daily Show short-term dating activity partners too many to list. Chilling at a bar with friends too many to list fascinates me there's no such thing as a typical Friday night making lasagna from scratch fixing my scooter.
 
@@ -219,7 +219,7 @@ I'm looking for art school I don't take myself too seriously vinyl records. Maki
      "Duffy",
      "Muffy",
      "justbeindogs@dogs.com",
-     415930949,
+     4159330949,
      2,
      "Exploring the city Indian food making people laugh share a new experience. Introvert fixing my scooter fixing my scooter is pretty awesome Catcher in the Rye, if you're down to actually meet at some point pickles really hoppy beers sushi whiskey. Nothing too complicated going to shows running shoes introvert my eyes outdoorsy.
 
@@ -235,7 +235,7 @@ Parallel parking recently moved back skiing loyal. Chilling at a bar with friend
      "Fredricksen",
      "Ellie",
      "fredricksens@mks.com",
-     415928821,
+     4159228821,
      2,
      "Discussing politics Game of Thrones joking around degree in philosophy. If you like my profile going back to school degree in philosophy exploring the city I'm just a regular guy, activity partners adventures happy hour joking around hiking. Mountain biking crossfit Indian food exploring the city dubstep listening to music.
 
@@ -251,7 +251,7 @@ Parallel parking recently moved back skiing loyal. Chilling at a bar with friend
      "Turin",
      "Shirley",
      "turins@italy.com",
-     415839912,
+     4158359912,
      2,
      "I'm looking for as friends I don't take myself too seriously Ethiopian. Thinking about trying yoga stepping outside your comfort zone working on my body and my mind I value art The Daily Show, short-term dating fitness I'm not good at filling out these things trying this for the first time Portlandia. Rock climbing mountain biking beach days new friends degree in philosophy feminism.
 
@@ -267,7 +267,7 @@ Parallel parking recently moved back skiing loyal. Chilling at a bar with friend
      "Mouse",
      "Minnie",
      "mouse@rollin.com",
-     415930934,
+     4159320934,
      2,
      "Going to the gym passionate about my height and shoulders bikes. Myers-Briggs watching a movie art school chilling at a bar with friends I'm just a regular guy, my eyes glass half-full extrovert fixing my scooter recently moved back. If you're down to actually meet at some point it depends on the night art school I have a crush on my height and shoulders happy hour.
 
