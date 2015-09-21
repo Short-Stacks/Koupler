@@ -7,11 +7,6 @@ var getUsername = function(token) {
   return decodedToken.username;
 }
 
-// //takes data object ({to: xx, from: xx, message: xx}) and returns an object with appriate query params
-// var processMessage = function(data) {
-
-// }
-
 //expects post request to /chat with json 
 // { "to": "cindy",
 //     "from": "ting",
@@ -19,12 +14,7 @@ var getUsername = function(token) {
 // }
 
 module.exports = {
-  postMessage: function (req, res, next) { 
-    // var senderUsername = getUsername(req.query.token); //should I auth?
-    // var senderUsername = req.body.from;
-    // var receiverUsername = req.body.to;
-    // var message = req.body.message;
-    
+  postMessage: function(req, res, next) {  
     var unprocessedParams = { 
       to: req.body.to,
       from: req.body.from,
@@ -34,29 +24,31 @@ module.exports = {
     console.log("unprocessedParams is ", unprocessedParams);
 
     chat.postMessage(unprocessedParams, function(err, data) {
-      if(err) console.log(err);
-
+      // if(err) console.log(err);
+      if(err) res.end("database failed to save: ",err)
       if(data) {
-        console.log("message posted to db!", data);
-        res.end();
+        res.end("message sent!");
       }
     })
   },
 
-  getMessages: function (req, res, next) {
-    //TODO: replace filler values
-    var unprocessedParams = {
-      to: "cindy",
-      from: "ting",
-    };
+  getMessages: function(req, res, next) {
+
+    var unprocessedParams = req.query;
+    console.log(unprocessedParams);
+    // var unprocessedParams = {
+    //   to: "cindy",
+    //   from: "ting",
+    // };
 
     chat.getMessages(unprocessedParams, function(err, data) {
-      if (err) console.log(err);
+      if(err) res.end("failed to retrieve messages");
+      // if (err) console.log(err);
 
-      if(data) {
-        console.log("messages received from db!!!!!!", data);
-        res.end();
-      }
+      console.log("in get messages", data);
+      res.end(JSON.stringify(data));
+    
+
     });
   }
 
