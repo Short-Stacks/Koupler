@@ -39,8 +39,12 @@ module.exports = {
 =======
 =======
   addActivity: function(username, activity, callback) {
+<<<<<<< HEAD
     var couples_activities = couples_activities || [];
 >>>>>>> (feature) can fully edit and update profile, can view activities in profile, working on adding activities during edit of profile
+=======
+    
+>>>>>>> (update) adding activities in profile edit no longer produces duplicates
     dbConnection.query('SELECT id FROM couples c WHERE c.username =?', [ username ], function(err, data) {
       var couplesId = data[0].id;
       dbConnection.query('SELECT id FROM activities a WHERE a.activity_name=?', [ activity ], function(err, data) {
