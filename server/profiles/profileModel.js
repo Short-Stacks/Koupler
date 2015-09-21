@@ -32,11 +32,16 @@ module.exports = {
   },
 
   addActivity: function(username, activity, callback) {
+    var couples_activities = couples_activities || [];
     dbConnection.query('SELECT id FROM couples c WHERE c.username =?', [ username ], function(err, data) {
       var couplesId = data[0].id;
       dbConnection.query('SELECT id FROM activities a WHERE a.activity_name=?', [ activity ], function(err, data) {
         var activityId = data[0].id;
-        dbConnection.query('INSERT into couples_activities (couples_id, activities_id) VALUES (?,?)', [ couplesId, activityId ], callback);
+        var couple_activity = couplesId + ',' + activityId;
+        if (couples_activities.indexOf(couple_activity) == -1) {
+          couples_activities.push(couple_activity);
+          dbConnection.query('INSERT into couples_activities (couples_id, activities_id) VALUES (?,?)', [ couplesId, activityId ], callback);
+        }
       })
     })
   },

@@ -29,7 +29,7 @@ module.exports = {
           for (var i = 0; i < data.length; i++) {
             if (userActivities.indexOf(data[i].activity_name) == -1) {
               userActivities.push(data[i].activity_name);
-            })
+            }
           }
           responseData.push(userActivities);
           res.send(responseData);
@@ -65,16 +65,6 @@ module.exports = {
         console.log('Profile Edited');
         res.end();
       });
-      // for(var i = 0; i < activitiesToAdd.length;) {
-      //   profile.addActivity([ activitiesToAdd[i] ], function(err, data) {
-      //     if (err) {
-      //       res.send(err);
-      //     }
-      //     else {
-      //       res.end();
-      //     }
-      //   })
-      // }
     }
     else {
       res.status(403).send();

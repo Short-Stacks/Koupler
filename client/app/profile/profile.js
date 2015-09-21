@@ -24,12 +24,7 @@ angular.module('koupler.profile', [
         }
         console.log("getProfileInfo:", response.data);
         vm.profileData = response.data[0];
-        vm.userActivities = [];
-        response.data[1].forEach(function(activity) {
-          if (vm.userActivities.indexOf(activity) == -1) {
-            vm.userActivities.push(activity);
-          }
-        })
+        vm.userActivities = response.data[1];
       });
   };
 
