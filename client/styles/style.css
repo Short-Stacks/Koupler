@@ -129,6 +129,20 @@ body > div:first-of-type {
 
 .editContainer {
   background-image: url("http://st.depositphotos.com/2071605/3534/i/950/depositphotos_35345585-aged-dark-wood-texture.jpg");
+  border-radius: 5px;
+}
+
+.black-text {
+  color: black;
+  margin-left: 40px;
+}
+.suggestions-container {
+  background-color: white;
+  border-radius: 10px;
+  font-color: black;
+  border-width: 2px;
+  color: black;
+  margin: 20px;
 }
 
 .tabs {
