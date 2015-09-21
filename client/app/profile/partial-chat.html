@@ -2,51 +2,49 @@
   <div id="live-chat" ng-show="openConversation">
     <!-- <span ng-repeat="msg in ctrl.messageStorage[ctrl.receiver] track by $index"> -->
     
-    <header class="clearfix">
+    <header class="clearfix" ng-click="chat.openClose()">
 
       <a href="#" class="chat-close">x</a>
 
-      <h4>Cindy</h4>
+      <h4>{{chat.receiverUsername}}</h4>
 
     </header>
 
     <div class="chat">
       
-      <div class="chat-history" ng-repeat="(key, value) in ctrl.messageStorage">
+      <div class="chat-history">
         
-        <div class="chat-message clearfix">
+        <div class="chat-message clearfix" ng-repeat="content in chat.tempMsgStorage">
 
-          <img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32" ng-if="msg[0] == ctrl.username">
-          <img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32" ng-if="msg[1] == ctrl.receiver">
-
+          <img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
+         <!--  <img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32" ng-if="msg[1] == ctrl.receiver">
+ -->
           <div class="chat-message-content clearfix">
             
             <span class="chat-time"></span>
-            <ul>
-              <li><h5>{{key}}</h5></li>
+              <h5>{{content.name}}</h5>
+              <p class="messageContent">{{content.msg}}</p>
 
-              <li>{{value}}</li>
-            </ul>
-          <hr>
           </div> <!-- end chat-message-content -->
 
         </div> <!-- end chat-message -->
+
+        <hr>
 
       </div> <!-- end chat-history -->
 
       <p class="chat-feedback">typing...</p>
 
       <form>
-
+      <!-- or use<form action="#" method="post"> -->
         <fieldset>
           
-          <input class="chatInput" type="text" placeholder="Type your message…" autofocus ng-model="ctrl.message">
-          <input class="chatInput" type="button" ng-click="ctrl.sendMessage($event)" value="Submit"></input>
+          <textarea class="chatInput text" rows="10" type="text" placeholder="Type your message…" autofocus ng-model="chat.message"></textarea>
+          <input class="chatInput"  width="3" type="button" ng-click="chat.sendMessage()" value="Submit"></input>
         </fieldset>
 
       </form>
 
     </div> <!-- end chat -->
-   </span>
   </div> <!-- end live-chat -->
 </div>

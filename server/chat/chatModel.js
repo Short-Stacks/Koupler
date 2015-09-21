@@ -4,12 +4,14 @@ var dbConnection = require('../db/index.js');
 function processParams (unprocessedParams, callback) {
   var queryString = 'SELECT id FROM couples WHERE username = (?) UNION ALL SELECT id FROM couples WHERE username = (?);';
   dbConnection.query(queryString, [unprocessedParams.to, unprocessedParams.from], function(err, data) {
+    if (err) {
+      callback(err);
+    }
 
-    if (err) console.log("query error", err);
-    
-    else {
+    if (data.length > 0) {
       var senderId =data[0].id;
       var receiverId = data[1].id;
+
       if (senderId < receiverId) {
         console.log("processed data is ", data);
         callback ([ [senderId + ":" + receiverId], [senderId] ]);
@@ -19,6 +21,7 @@ function processParams (unprocessedParams, callback) {
         callback([ [receiverId + ":" + senderId], [senderId] ]);
       }
     }
+
   });
 
 }
@@ -28,24 +31,24 @@ module.exports = {
   getMessages: function(unprocessedParams, callback) {
 
     processParams(unprocessedParams, function(param){
-      var usersParam = param[0];
-      console.log("processed usersParams is ", usersParam);
+        var usersParam = param[0];
+        console.log("processed usersParams is ", usersParam);
 
-      var getTotalQuery = 'SELECT total_messages FROM total_messages WHERE identifier = (?);';
-      dbConnection.query(getTotalQuery, usersParam, function(err, data) {
-        var total = data[0].total_messages;
+        var getTotalQuery = 'SELECT total_messages FROM total_messages WHERE identifier = (?);';
+        dbConnection.query(getTotalQuery, usersParam, function(err, data) {
+          var total = data[0].total_messages;
 
-        if (total <= 10) {
-          var messagesParam = [usersParam + ":%"];
-          var getAllMessagesQuery = 'SELECT message, created_on, username FROM messages, couples WHERE id = sender && identifier_message_number LIKE (?);';
-          dbConnection.query(getAllMessagesQuery, messagesParam, callback);  
-        }
-        else {
-          var messagesParam = [usersParam + ":" + total-10, usersParam + ":" + total ];
-          var getRecentMessagesQuery = 'SELECT message, created_on, username FROM messages, couples WHERE id = sender && identifier_message_number BETWEEN (?) AND (?);';
-          dbConnection.query(getRecentMessagesQuery, messagesParam, callback);
-        }
-      })
+          if (total <= 10) {
+            var messagesParam = [usersParam + ":%"];
+            var getAllMessagesQuery = 'SELECT message, created_on, username FROM messages, couples WHERE id = sender && identifier_message_number LIKE (?);';
+            dbConnection.query(getAllMessagesQuery, messagesParam, callback);  
+          }
+          else {
+            var messagesParam = [usersParam + ":" + total-10, usersParam + ":" + total ];
+            var getRecentMessagesQuery = 'SELECT message, created_on, username FROM messages, couples WHERE id = sender && identifier_message_number BETWEEN (?) AND (?);';
+            dbConnection.query(getRecentMessagesQuery, messagesParam, callback);
+          }
+        })
     })
   },
   //update total_messages table and messages table

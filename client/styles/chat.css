@@ -32,13 +32,21 @@
 .chatInput {
   border: 0;
   color: inherit;
-    font-family: inherit;
-    font-size: 100%;
-    line-height: normal;
-    margin: 0;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: normal;
+  margin: 0;
 }
 
-.ch-box p { margin: 0; }
+.text {
+  height: 30px;
+  width: 100%;
+}
+
+.messageContent{ 
+  margin: 0; 
+  color: black;
+}
 
 .clearfix { *zoom: 1; } /* For IE 6/7 */
 .clearfix:before, .clearfix:after {
@@ -155,6 +163,7 @@
 }
 
 .chat-feedback {
+  color: black;
   font-style: italic;
   margin: 0 0 0 80px;
 }
