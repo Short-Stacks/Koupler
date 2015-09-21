@@ -2,16 +2,24 @@ angular.module('koupler.profile', [
   'ui.bootstrap'
   ])
 
-.controller('ProfileCtrl', ['$scope', '$state', '$modal', '$http', 'Activities', 'AuthTokenFactory', 'Upload', function($scope, $state, $modal, $http, Activities, AuthTokenFactory, Upload) {
+.controller('ProfileCtrl', ['$scope', '$state', '$modal', '$http', 'Activities', 'AuthTokenFactory', 'Upload', '$window', function($scope, $state, $modal, $http, Activities, AuthTokenFactory, Upload, $window) {
 
   var vm = this;
   //placeholder for POST request until routeParam is set up
   vm.username = $state.params.username;
+
+  $window.localStorage.setItem('Koup_user', vm.username);
   vm.activities = Activities.getActivities();
   
   vm.goToActivities = function() {
     $state.go('activities');
   };
+
+
+  vm.profileData = {};
+
+  // when true, hides the profile pic and replaced with uploaded pic
+  vm.hideProfilePic = false;
 
   vm.getProfileInfo = function() {
     var token = AuthTokenFactory.getToken();
@@ -26,6 +34,7 @@ angular.module('koupler.profile', [
         vm.profileData = response.data[0];
         vm.userActivities = response.data[1];
       });
+
   };
 
   vm.addActivity = function(activity) {
@@ -53,7 +62,10 @@ angular.module('koupler.profile', [
 
   vm.uploadFiles = function(file) {
     vm.f = file;
+
     if (file && !file.$error) {
+      vm.hideProfilePic = true;
+
       file.upload = Upload.upload({
         url: '/profile/' + vm.username + '/pic',
         file: file,

@@ -1,6 +1,7 @@
 <div class="profile-view">
 <div class="row">
-  <img class="col-md-4" src="{{ ctrl.profileData.photo_filepath }}">
+  <img class="col-md-4" ng-hide="ctrl.hideProfilePic" src="{{ ctrl.profileData.photo_filepath }}">
+  <img class="col-md-4" ng-show="ctrl.f" ngf-src="ctrl.f">
   <h1 class="stroke">{{ ctrl.profileData.person_1_first_name }} & {{ ctrl.profileData.person_2_first_name }}</h1>
   <div class="activity col-md-4" ng-repeat="activity in ctrl.userActivities track by $index">{{ activity }}</div>
 </div>
@@ -11,7 +12,7 @@
   </div>
 
   <div class="col-md-4">
-    <p><legend>Contact Info</legend> 
+    <p><legend>Contact Info</legend>
       {{ ctrl.profileData.email }} <br>
       {{ ctrl.profileData.phone }} <br>
       {{ ctrl.profileData.location_city}} <br>
